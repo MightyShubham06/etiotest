@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="320dp"
+    android:backgroundTint="@color/white"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_shild"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Verify your code"
+            android:textColor="#333333"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvOtpSentTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="we have sent a code to your email is\n***ab@gmail.com"
+            android:textColor="#666666"
+            android:textSize="13sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <EditText android:id="@+id/otp1" style="@style/OtpEditTextStyle" />
+            <EditText android:id="@+id/otp2" style="@style/OtpEditTextStyle" />
+            <EditText android:id="@+id/otp3" style="@style/OtpEditTextStyle" />
+            <EditText android:id="@+id/otp4" style="@style/OtpEditTextStyle" />
+            <EditText android:id="@+id/otp5" style="@style/OtpEditTextStyle" />
+            <EditText android:id="@+id/otp6" style="@style/OtpEditTextStyle" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnVerifyOtp"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="#3A93BD"
+            android:text="Verify"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            app:cornerRadius="8dp" />
+
+        <TextView
+            android:id="@+id/btnResend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Didn't receive code? Resend"
+            android:textColor="#3A93BD"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

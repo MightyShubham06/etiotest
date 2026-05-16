@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@drawable/ic_new"
+    android:fitsSystemWindows="true"
+    android:padding="0dp">
+
+    <LinearLayout
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <!-- Logo -->
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/ic_etiotest_logo" />
+
+        <!-- Sign Up title -->
+        <TextView
+            android:textColor="@color/color_secondary"
+            android:id="@+id/tvSignupTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/sf_bold"
+            android:text="@string/sign_up"
+            android:textSize="32sp" />
+
+        <!-- Box with radio buttons -->
+        <LinearLayout
+            android:id="@+id/llUserTypeBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_grey_border"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <RadioGroup
+                android:id="@+id/rgUserType"
+                android:layout_width="match_parent"
+                android:gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:layout_weight="1"
+                    android:id="@+id/rbPersonal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Personal"
+                    android:textColor="@color/color_primary"
+
+                    android:checked="true" />
+
+                <RadioButton
+                    android:layout_weight="1"
+
+                    android:id="@+id/rbCorporate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_primary"
+
+                    android:text="Corporate" />
+
+                <RadioButton
+                    android:layout_weight="1"
+                    android:id="@+id/rbGuest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_primary"
+                    android:text="Guest" />
+            </RadioGroup>
+        </LinearLayout>  <!-- end llUserTypeBox -->
+
+        <!-- Email field -->
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="16dp"
+
+            android:background="@drawable/bg_grey_border"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_email"
+                app:tint="@color/color_secondary" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/sf_regular"
+                android:hint="@string/enter_your_mailid"
+                android:inputType="textEmailAddress"
+                android:paddingStart="8dp"
+                android:textColor="@color/black"
+                android:textColorHint="#BABABA"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Phone field -->
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_grey_border"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:tint="@color/color_secondary"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="phone icon"
+                android:src="@drawable/ic_phone" />
+
+            <EditText
+                android:id="@+id/etPhone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/sf_regular"
+                android:hint="@string/enter_your_phone_number"
+                android:inputType="phone"
+                android:paddingStart="8dp"
+                android:textColorHint="#BABABA"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Password field -->
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_grey_border"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="lock icon"
+                app:tint="@color/color_secondary"
+                android:src="@drawable/ic_lock" />
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/sf_regular"
+                android:hint="Enter your Name"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:paddingStart="8dp"
+                android:textColorHint="#BABABA"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/ivTogglePassword"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                app:tint="@color/color_secondary"
+                android:contentDescription="toggle password"
+                android:src="@drawable/ic_eye" />
+        </LinearLayout>
+
+        <!-- Confirm Password field -->
+        <LinearLayout
+            android:visibility="gone"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_grey_border"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:tint="@color/color_secondary"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_lock" />
+
+            <EditText
+                android:id="@+id/etConfirmPassword"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/sf_regular"
+                android:hint="@string/confirm_password"
+                android:inputType="textPassword"
+                android:paddingStart="8dp"
+                android:textColorHint="#BABABA"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/ivToggleConfirmPassword"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:tint="@color/color_secondary"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_eye" />
+        </LinearLayout>
+
+        <!-- Signup button -->
+        <Button
+            android:id="@+id/btnSignup"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/color_secondary"
+            android:text="@string/sign_up"
+            android:textColor="@android:color/white" />
+
+        <!-- Already have account / login link (we can use single TextView with spannable) -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/tvLoginLink"
+            android:src="@drawable/ic_alreadylogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="0dp">
+
+        </androidx.appcompat.widget.AppCompatImageView>
+
+    </LinearLayout>  <!-- end main LinearLayout -->
+
+</ScrollView>

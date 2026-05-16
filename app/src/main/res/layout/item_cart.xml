@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <!-- Test Name -->
+        <TextView
+            android:id="@+id/tvTestName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Test Name"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+
+        <!-- Price + Quantity Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            android:layout_marginTop="6dp">
+
+            <TextView
+                android:id="@+id/tvTestPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₹ 500"
+                android:textColor="@android:color/holo_green_dark"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Qty: 1"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Optional: Remove button (if needed) -->
+        <Button
+            android:id="@+id/btnRemove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="8dp"
+            android:text="Remove"
+            android:textSize="13sp"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            android:backgroundTint="@color/design_default_color_error"
+            android:textColor="@android:color/white"
+            android:visibility="gone" /> <!-- Set visible if you use it -->
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

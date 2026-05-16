@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_new"
+    android:padding="24dp">
+
+    <!-- 1. Logo Box -->
+    <ImageView
+        android:id="@+id/viewLogoBg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/ic_etiotest_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logo"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/viewLogoBg"
+        app:layout_constraintEnd_toEndOf="@id/viewLogoBg"
+        app:layout_constraintStart_toStartOf="@id/viewLogoBg"
+        app:layout_constraintTop_toTopOf="@id/viewLogoBg" />
+
+    <!-- 2. Title -->
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Welcome"
+        android:textColor="@color/color_primary"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewLogoBg" />
+
+    <TextView
+        android:id="@+id/tvSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Login to continue"
+        android:textColor="@color/login_text_gray"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvWelcome" />
+
+    <!-- 3. Custom Tabs -->
+
+    <!-- 4. Email Input (Simulating the look in image without standard TIL box) -->
+    <!-- Note: We use a FrameLayout to create the white rounded box background -->
+    <!-- 4. Email Input -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="27dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toBottomOf="@id/tvSubtitle"
+        app:tabIndicatorColor="@color/color_underline"
+        app:tabIndicatorHeight="3dp"
+        app:tabRippleColor="@null"
+        app:tabSelectedTextColor="#333333"
+        app:tabTextAppearance="@style/CustomTabText"
+        app:tabTextColor="@color/login_text_gray"
+        tools:layout_editor_absoluteX="-179dp">
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personal" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Corporate" />
+
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <FrameLayout
+        android:id="@+id/containerEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_input_filed"
+        android:paddingHorizontal="4dp"
+        app:layout_constraintTop_toBottomOf="@id/tabLayout">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilEmail"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:hintEnabled="false"
+            app:startIconDrawable="@drawable/ic_email"
+            app:startIconTint="@color/login_primary_dark">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:hint="Enter your Corporate mail"
+                android:textColorHint="@color/login_text_gray"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </FrameLayout>
+
+    <!-- 5. Password Input -->
+    <!-- 5. Password Input -->
+    <FrameLayout
+        android:visibility="invisible"
+        android:id="@+id/containerPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_input_filed"
+        android:paddingHorizontal="4dp"
+        app:layout_constraintTop_toBottomOf="@id/containerEmail">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilPassword"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:hintEnabled="false"
+            app:startIconDrawable="@drawable/ic_lock"
+            app:startIconTint="@color/login_primary_dark"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/login_primary_dark">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:hint="Password"
+                android:textColorHint="@color/login_text_gray"
+                android:textSize="14sp"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </FrameLayout>
+
+    <!-- 6. Forgot Password -->
+    <TextView
+        android:id="@+id/tvForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Forgot Password?"
+        android:textColor="@color/login_red_alert"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/containerPassword" />
+
+    <!-- 7. Auto Login Switch -->
+    <TextView
+        android:id="@+id/tvEnableAutoLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enable Auto-Login"
+        android:textColor="@color/login_text_gray"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/switchAutoLogin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/switchAutoLogin" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switchAutoLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:thumbTint="@android:color/white"
+        app:trackTint="@color/login_accent_cyan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvForgotPassword" />
+
+    <!-- 8. Login Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/login"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/login_primary_dark"
+        app:cornerRadius="8dp"
+        app:layout_constraintTop_toBottomOf="@id/switchAutoLogin" />
+
+    <!-- 9. Sign Up Footer -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnLogin">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Don't have an account? "
+            android:textColor="@color/login_text_gray" />
+
+        <TextView
+            android:id="@+id/tvSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign Up"
+            android:textColor="@color/login_primary_dark"
+            android:textStyle="bold"
+            android:paddingStart="4dp"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

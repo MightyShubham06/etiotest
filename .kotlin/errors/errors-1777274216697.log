@@ -1,0 +1,338 @@
+kotlin version: 2.0.21
+error message: org.jetbrains.kotlin.backend.common.BackendException: Backend Internal error: Exception during IR lowering
+File being compiled: /Users/rehan/Desktop/ETIOTEST/app/src/main/java/com/example/etiotest/ui/theme/main/OrderDetailsFragment.kt
+The root cause java.lang.RuntimeException was thrown at: org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:47)
+	at org.jetbrains.kotlin.backend.common.CodegenUtil.reportBackendException(CodegenUtil.kt:253)
+	at org.jetbrains.kotlin.backend.common.CodegenUtil.reportBackendException$default(CodegenUtil.kt:236)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invokeSequential(performByIrFile.kt:65)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invoke(performByIrFile.kt:52)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invoke(performByIrFile.kt:38)
+	at org.jetbrains.kotlin.backend.common.phaser.NamedCompilerPhase.phaseBody(CompilerPhase.kt:166)
+	at org.jetbrains.kotlin.backend.common.phaser.AbstractNamedCompilerPhase.invoke(CompilerPhase.kt:113)
+	at org.jetbrains.kotlin.backend.common.phaser.CompositePhase.invoke(PhaseBuilders.kt:27)
+	at org.jetbrains.kotlin.backend.common.phaser.CompositePhase.invoke(PhaseBuilders.kt:14)
+	at org.jetbrains.kotlin.backend.common.phaser.NamedCompilerPhase.phaseBody(CompilerPhase.kt:166)
+	at org.jetbrains.kotlin.backend.common.phaser.AbstractNamedCompilerPhase.invoke(CompilerPhase.kt:113)
+	at org.jetbrains.kotlin.backend.common.phaser.CompilerPhaseKt.invokeToplevel(CompilerPhase.kt:62)
+	at org.jetbrains.kotlin.backend.jvm.JvmIrCodegenFactory.invokeCodegen(JvmIrCodegenFactory.kt:371)
+	at org.jetbrains.kotlin.codegen.CodegenFactory.generateModule(CodegenFactory.kt:47)
+	at org.jetbrains.kotlin.backend.jvm.JvmIrCodegenFactory.generateModuleInFrontendIRMode(JvmIrCodegenFactory.kt:433)
+	at org.jetbrains.kotlin.cli.jvm.compiler.pipeline.JvmCompilerPipelineKt.generateCodeFromIr(jvmCompilerPipeline.kt:246)
+	at org.jetbrains.kotlin.cli.jvm.compiler.pipeline.JvmCompilerPipelineKt.compileModulesUsingFrontendIrAndLightTree(jvmCompilerPipeline.kt:142)
+	at org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.doExecute(K2JVMCompiler.kt:148)
+	at org.jetbrains.kotlin.cli.jvm.K2JVMCompiler.doExecute(K2JVMCompiler.kt:43)
+	at org.jetbrains.kotlin.cli.common.CLICompiler.execImpl(CLICompiler.kt:103)
+	at org.jetbrains.kotlin.cli.common.CLICompiler.execImpl(CLICompiler.kt:49)
+	at org.jetbrains.kotlin.cli.common.CLITool.exec(CLITool.kt:101)
+	at org.jetbrains.kotlin.incremental.IncrementalJvmCompilerRunner.runCompiler(IncrementalJvmCompilerRunner.kt:464)
+	at org.jetbrains.kotlin.incremental.IncrementalJvmCompilerRunner.runCompiler(IncrementalJvmCompilerRunner.kt:73)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.doCompile(IncrementalCompilerRunner.kt:506)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.compileImpl(IncrementalCompilerRunner.kt:423)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.tryCompileIncrementally$lambda$9$compile(IncrementalCompilerRunner.kt:249)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.tryCompileIncrementally(IncrementalCompilerRunner.kt:267)
+	at org.jetbrains.kotlin.incremental.IncrementalCompilerRunner.compile(IncrementalCompilerRunner.kt:120)
+	at org.jetbrains.kotlin.daemon.CompileServiceImplBase.execIncrementalCompiler(CompileServiceImpl.kt:675)
+	at org.jetbrains.kotlin.daemon.CompileServiceImplBase.access$execIncrementalCompiler(CompileServiceImpl.kt:92)
+	at org.jetbrains.kotlin.daemon.CompileServiceImpl.compile(CompileServiceImpl.kt:1660)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(Unknown Source)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(Unknown Source)
+	at java.base/java.security.AccessController.doPrivileged(Unknown Source)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.RuntimeException: Exception while generating code for:
+FUN name:onViewCreated visibility:public modality:OPEN <> ($this:com.example.etiotest.ui.theme.main.OrderDetailsFragment, view:android.view.View, savedInstanceState:android.os.Bundle?) returnType:kotlin.Unit
+  overridden:
+    public open fun onViewCreated (p0: @[EnhancedNullability] android.view.View, p1: @[EnhancedNullability] android.os.Bundle?): kotlin.Unit declared in androidx.fragment.app.Fragment
+  $this: VALUE_PARAMETER name:<this> type:com.example.etiotest.ui.theme.main.OrderDetailsFragment
+  VALUE_PARAMETER name:view index:0 type:android.view.View
+  VALUE_PARAMETER name:savedInstanceState index:1 type:android.os.Bundle?
+  BLOCK_BODY
+    CALL 'public open fun onViewCreated (p0: @[EnhancedNullability] android.view.View, p1: @[EnhancedNullability] android.os.Bundle?): kotlin.Unit declared in androidx.fragment.app.Fragment' superQualifier='CLASS IR_EXTERNAL_JAVA_DECLARATION_STUB CLASS name:Fragment modality:OPEN visibility:public superTypes:[kotlin.Any; android.content.ComponentCallbacks; android.view.View.OnCreateContextMenuListener; androidx.lifecycle.LifecycleOwner; androidx.lifecycle.ViewModelStoreOwner; androidx.lifecycle.HasDefaultViewModelProviderFactory; androidx.savedstate.SavedStateRegistryOwner; androidx.activity.result.ActivityResultCaller]' type=kotlin.Unit origin=null
+      $this: GET_VAR '<this>: com.example.etiotest.ui.theme.main.OrderDetailsFragment declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated' type=com.example.etiotest.ui.theme.main.OrderDetailsFragment origin=null
+      p0: GET_VAR 'view: android.view.View declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated' type=android.view.View origin=null
+      p1: GET_VAR 'savedInstanceState: android.os.Bundle? declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated' type=android.os.Bundle? origin=null
+    VAR name:orderItem type:com.example.etiotest.data.model.OrderItem? [val]
+      BLOCK type=@[EnhancedNullability] com.example.etiotest.data.model.OrderItem? origin=FOLDED_SAFE_CALL
+        WHEN type=@[EnhancedNullability] com.example.etiotest.data.model.OrderItem? origin=FOLDED_SAFE_CALL
+          BRANCH
+            if: COMPOSITE type=kotlin.Boolean origin=null
+              VAR IR_TEMPORARY_VARIABLE name:tmp0_safe_receiver type:@[EnhancedNullability] android.os.Bundle? [val]
+                CALL 'public final fun getArguments (): @[EnhancedNullability] android.os.Bundle? [fake_override] declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment' type=@[EnhancedNullability] android.os.Bundle? origin=GET_PROPERTY
+                  $this: GET_VAR '<this>: com.example.etiotest.ui.theme.main.OrderDetailsFragment declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated' type=com.example.etiotest.ui.theme.main.OrderDetailsFragment origin=null
+              CALL 'public final fun not (): kotlin.Boolean [operator] declared in kotlin.Boolean' type=kotlin.Boolean origin=null
+                $this: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=null
+                  arg0: GET_VAR 'val tmp0_safe_receiver: @[EnhancedNullability] android.os.Bundle? [val] declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated' type=@[EnhancedNullability] android.os.Bundle? origin=null
+                  arg1: CONST Null type=kotlin.Nothing? value=null
+            then: CALL 'public open fun getParcelable <T> (p0: @[EnhancedNullability] kotlin.String?): @[EnhancedNullability] T of android.os.Bundle.getParcelable? declared in android.os.Bundle' type=@[EnhancedNullability] com.example.etiotest.data.model.OrderItem? origin=null
+              <T>: @[FlexibleNullability] com.example.etiotest.data.model.OrderItem?
+              $this: GET_VAR 'val tmp0_safe_receiver: @[EnhancedNullability] android.os.Bundle? [val] declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated' type=@[EnhancedNullability] android.os.Bundle? origin=null
+              p0: CONST String type=kotlin.String value="order_data"
+          BRANCH
+            if: CONST Boolean type=kotlin.Boolean value=true
+            then: CONST Null type=kotlin.Nothing? value=null
+    COMPOSITE type=kotlin.Unit origin=null
+      BLOCK type=kotlin.Unit? origin=FOLDED_SAFE_CALL
+        WHEN type=kotlin.Unit? origin=FOLDED_SAFE_CALL
+          BRANCH
+            if: COMPOSITE type=kotlin.Boolean origin=null
+              CALL 'public final fun not (): kotlin.Boolean [operator] declared in kotlin.Boolean' type=kotlin.Boolean origin=null
+                $this: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=null
+                  arg0: GET_VAR 'val orderItem: com.example.etiotest.data.model.OrderItem? [val] declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated' type=com.example.etiotest.data.model.OrderItem? origin=null
+                  arg1: CONST Null type=kotlin.Nothing? value=null
+            then: CALL 'public final fun let <T, R> (block: kotlin.Function1<T of kotlin.StandardKt.let, R of kotlin.StandardKt.let>): R of kotlin.StandardKt.let [inline] declared in kotlin.StandardKt' type=kotlin.Unit origin=null
+              <T>: com.example.etiotest.data.model.OrderItem
+              <R>: kotlin.Unit
+              $receiver: GET_VAR 'val orderItem: com.example.etiotest.data.model.OrderItem? [val] declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated' type=com.example.etiotest.data.model.OrderItem? origin=null
+              block: BLOCK type=kotlin.Function1<com.example.etiotest.data.model.OrderItem, kotlin.Unit> origin=LAMBDA
+                COMPOSITE type=kotlin.Unit origin=null
+                FUNCTION_REFERENCE 'private final fun onViewCreated$lambda$5 (this$0: com.example.etiotest.ui.theme.main.OrderDetailsFragment, item: com.example.etiotest.data.model.OrderItem): kotlin.Unit declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment' type=kotlin.Function1<com.example.etiotest.data.model.OrderItem, kotlin.Unit> origin=INLINE_LAMBDA reflectionTarget=null
+                  this$0: GET_VAR '<this>: com.example.etiotest.ui.theme.main.OrderDetailsFragment declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated' type=com.example.etiotest.ui.theme.main.OrderDetailsFragment origin=null
+          BRANCH
+            if: CONST Boolean type=kotlin.Boolean value=true
+            then: CONST Null type=kotlin.Nothing? value=null
+
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:47)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate$default(FunctionCodegen.kt:40)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generateMethodNode(ClassCodegen.kt:406)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generateMethod(ClassCodegen.kt:423)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ClassCodegen.generate(ClassCodegen.kt:168)
+	at org.jetbrains.kotlin.backend.jvm.FileCodegen.lower(JvmPhases.kt:39)
+	at org.jetbrains.kotlin.backend.common.phaser.PhaseFactoriesKt.createFilePhase$lambda$4(PhaseFactories.kt:71)
+	at org.jetbrains.kotlin.backend.common.phaser.PhaseBuildersKt$createSimpleNamedCompilerPhase$1.phaseBody(PhaseBuilders.kt:69)
+	at org.jetbrains.kotlin.backend.common.phaser.SimpleNamedCompilerPhase.phaseBody(CompilerPhase.kt:226)
+	at org.jetbrains.kotlin.backend.common.phaser.AbstractNamedCompilerPhase.invoke(CompilerPhase.kt:113)
+	at org.jetbrains.kotlin.backend.common.phaser.PerformByIrFilePhase.invokeSequential(performByIrFile.kt:62)
+	... 44 more
+Caused by: java.lang.RuntimeException: Exception while generating code for:
+FUN INLINE_LAMBDA name:onViewCreated$lambda$5 visibility:private modality:FINAL <> (this$0:com.example.etiotest.ui.theme.main.OrderDetailsFragment, item:com.example.etiotest.data.model.OrderItem) returnType:kotlin.Unit
+  VALUE_PARAMETER BOUND_VALUE_PARAMETER name:this$0 index:0 type:com.example.etiotest.ui.theme.main.OrderDetailsFragment
+  VALUE_PARAMETER name:item index:1 type:com.example.etiotest.data.model.OrderItem
+  BLOCK_BODY
+    VAR name:$i$a$-let-OrderDetailsFragment$onViewCreated$1 type:kotlin.Int [val]
+      CONST Int type=kotlin.Int value=0
+    CALL 'public final fun setText (p0: @[FlexibleNullability] kotlin.CharSequence?): kotlin.Unit declared in android.widget.TextView' type=kotlin.Unit origin=EQ
+      $this: GET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:patientName type:@[EnhancedNullability] android.widget.TextView visibility:public [final] declared in com.example.etiotest.databinding.FragmentOrderDetailsBinding' type=@[EnhancedNullability] android.widget.TextView superQualifierSymbol=com.example.etiotest.databinding.FragmentOrderDetailsBinding origin=null
+        receiver: CALL 'private final fun <get-binding> (): com.example.etiotest.databinding.FragmentOrderDetailsBinding declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment' type=com.example.etiotest.databinding.FragmentOrderDetailsBinding origin=GET_PROPERTY
+          $this: GET_VAR 'this$0: com.example.etiotest.ui.theme.main.OrderDetailsFragment declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated$lambda$5' type=com.example.etiotest.ui.theme.main.OrderDetailsFragment origin=null
+      p0: CALL 'public final fun <get-name> (): kotlin.String declared in com.example.etiotest.data.model.Patient' type=kotlin.String origin=GET_PROPERTY
+        $this: CALL 'public final fun <get-patient> (): com.example.etiotest.data.model.Patient declared in com.example.etiotest.data.model.OrderItem' type=com.example.etiotest.data.model.Patient origin=GET_PROPERTY
+          $this: GET_VAR 'item: com.example.etiotest.data.model.OrderItem declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated$lambda$5' type=com.example.etiotest.data.model.OrderItem origin=null
+    CALL 'public final fun setText (p0: @[FlexibleNullability] kotlin.CharSequence?): kotlin.Unit declared in android.widget.TextView' type=kotlin.Unit origin=EQ
+      $this: GET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:pickupDateTime type:@[EnhancedNullability] android.widget.TextView visibility:public [final] declared in com.example.etiotest.databinding.FragmentOrderDetailsBinding' type=@[EnhancedNullability] android.widget.TextView superQualifierSymbol=com.example.etiotest.databinding.FragmentOrderDetailsBinding origin=null
+        receiver: CALL 'private final fun <get-binding> (): com.example.etiotest.databinding.FragmentOrderDetailsBinding declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment' type=com.example.etiotest.databinding.FragmentOrderDetailsBinding origin=GET_PROPERTY
+          $this: GET_VAR 'this$0: com.example.etiotest.ui.theme.main.OrderDetailsFragment declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated$lambda$5' type=com.example.etiotest.ui.theme.main.OrderDetailsFragment origin=null
+      p0: STRING_CONCATENATION type=kotlin.String
+        CALL 'public final fun substring (startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.String [inline] declared in kotlin.text.StringsKt' type=kotlin.String origin=null
+          $receiver: CALL 'public final fun <get-bookingDate> (): kotlin.String declared in com.example.etiotest.data.model.OrderItem' type=kotlin.String origin=GET_PROPERTY
+            $this: GET_VAR 'item: com.example.etiotest.data.model.OrderItem declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated$lambda$5' type=com.example.etiotest.data.model.OrderItem origin=null
+          startIndex: CONST Int type=kotlin.Int value=0
+          endIndex: CONST Int type=kotlin.Int value=10
+        CONST String type=kotlin.String value=", 10 am to 11 am"
+    CALL 'public final fun setText (p0: @[FlexibleNullability] kotlin.CharSequence?): kotlin.Unit declared in android.widget.TextView' type=kotlin.Unit origin=EQ
+      $this: GET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:totalFare type:@[EnhancedNullability] android.widget.TextView visibility:public [final] declared in com.example.etiotest.databinding.FragmentOrderDetailsBinding' type=@[EnhancedNullability] android.widget.TextView superQualifierSymbol=com.example.etiotest.databinding.FragmentOrderDetailsBinding origin=null
+        receiver: CALL 'private final fun <get-binding> (): com.example.etiotest.databinding.FragmentOrderDetailsBinding declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment' type=com.example.etiotest.databinding.FragmentOrderDetailsBinding origin=GET_PROPERTY
+          $this: GET_VAR 'this$0: com.example.etiotest.ui.theme.main.OrderDetailsFragment declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated$lambda$5' type=com.example.etiotest.ui.theme.main.OrderDetailsFragment origin=null
+      p0: STRING_CONCATENATION type=kotlin.String
+        CONST String type=kotlin.String value="Rs. "
+        CALL 'public final fun <get-total> (): kotlin.Int declared in com.example.etiotest.data.model.Pricing' type=kotlin.Int origin=GET_PROPERTY
+          $this: CALL 'public final fun <get-pricing> (): com.example.etiotest.data.model.Pricing declared in com.example.etiotest.data.model.OrderItem' type=com.example.etiotest.data.model.Pricing origin=GET_PROPERTY
+            $this: GET_VAR 'item: com.example.etiotest.data.model.OrderItem declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated$lambda$5' type=com.example.etiotest.data.model.OrderItem origin=null
+    CALL 'public open fun removeAllViews (): kotlin.Unit [fake_override] declared in android.widget.LinearLayout' type=kotlin.Unit origin=null
+      $this: GET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:llTestsListContainer type:@[EnhancedNullability] android.widget.LinearLayout visibility:public [final] declared in com.example.etiotest.databinding.FragmentOrderDetailsBinding' type=@[EnhancedNullability] android.widget.LinearLayout superQualifierSymbol=com.example.etiotest.databinding.FragmentOrderDetailsBinding origin=null
+        receiver: CALL 'private final fun <get-binding> (): com.example.etiotest.databinding.FragmentOrderDetailsBinding declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment' type=com.example.etiotest.databinding.FragmentOrderDetailsBinding origin=GET_PROPERTY
+          $this: GET_VAR 'this$0: com.example.etiotest.ui.theme.main.OrderDetailsFragment declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated$lambda$5' type=com.example.etiotest.ui.theme.main.OrderDetailsFragment origin=null
+    CALL 'public final fun forEach <T> (action: kotlin.Function1<T of kotlin.collections.CollectionsKt.forEach, kotlin.Unit>): kotlin.Unit [inline] declared in kotlin.collections.CollectionsKt' type=kotlin.Unit origin=null
+      <T>: com.example.etiotest.data.model.Test
+      $receiver: CALL 'public final fun <get-tests> (): kotlin.collections.List<com.example.etiotest.data.model.Test> declared in com.example.etiotest.data.model.OrderItem' type=kotlin.collections.List<com.example.etiotest.data.model.Test> origin=GET_PROPERTY
+        $this: GET_VAR 'item: com.example.etiotest.data.model.OrderItem declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated$lambda$5' type=com.example.etiotest.data.model.OrderItem origin=null
+      action: BLOCK type=kotlin.Function1<com.example.etiotest.data.model.Test, kotlin.Unit> origin=LAMBDA
+        COMPOSITE type=kotlin.Unit origin=null
+        FUNCTION_REFERENCE 'private final fun onViewCreated$lambda$5$lambda$1 (this$0: com.example.etiotest.ui.theme.main.OrderDetailsFragment, test: com.example.etiotest.data.model.Test): kotlin.Unit declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment' type=kotlin.Function1<com.example.etiotest.data.model.Test, kotlin.Unit> origin=INLINE_LAMBDA reflectionTarget=null
+          this$0: GET_VAR 'this$0: com.example.etiotest.ui.theme.main.OrderDetailsFragment declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated$lambda$5' type=com.example.etiotest.ui.theme.main.OrderDetailsFragment origin=null
+    CALL 'public open fun removeAllViews (): kotlin.Unit [fake_override] declared in android.widget.LinearLayout' type=kotlin.Unit origin=null
+      $this: GET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:llPriceBreakdownContainer type:@[EnhancedNullability] android.widget.LinearLayout visibility:public [final] declared in com.example.etiotest.databinding.FragmentOrderDetailsBinding' type=@[EnhancedNullability] android.widget.LinearLayout superQualifierSymbol=com.example.etiotest.databinding.FragmentOrderDetailsBinding origin=null
+        receiver: CALL 'private final fun <get-binding> (): com.example.etiotest.databinding.FragmentOrderDetailsBinding declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment' type=com.example.etiotest.databinding.FragmentOrderDetailsBinding origin=GET_PROPERTY
+          $this: GET_VAR 'this$0: com.example.etiotest.ui.theme.main.OrderDetailsFragment declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated$lambda$5' type=com.example.etiotest.ui.theme.main.OrderDetailsFragment origin=null
+    CALL 'public final fun forEach <T> (action: kotlin.Function1<T of kotlin.collections.CollectionsKt.forEach, kotlin.Unit>): kotlin.Unit [inline] declared in kotlin.collections.CollectionsKt' type=kotlin.Unit origin=null
+      <T>: com.example.etiotest.data.model.Test
+      $receiver: CALL 'public final fun <get-tests> (): kotlin.collections.List<com.example.etiotest.data.model.Test> declared in com.example.etiotest.data.model.OrderItem' type=kotlin.collections.List<com.example.etiotest.data.model.Test> origin=GET_PROPERTY
+        $this: GET_VAR 'item: com.example.etiotest.data.model.OrderItem declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated$lambda$5' type=com.example.etiotest.data.model.OrderItem origin=null
+      action: BLOCK type=kotlin.Function1<com.example.etiotest.data.model.Test, kotlin.Unit> origin=LAMBDA
+        COMPOSITE type=kotlin.Unit origin=null
+        FUNCTION_REFERENCE 'private final fun onViewCreated$lambda$5$lambda$3 (this$0: com.example.etiotest.ui.theme.main.OrderDetailsFragment, test: com.example.etiotest.data.model.Test): kotlin.Unit declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment' type=kotlin.Function1<com.example.etiotest.data.model.Test, kotlin.Unit> origin=INLINE_LAMBDA reflectionTarget=null
+          this$0: GET_VAR 'this$0: com.example.etiotest.ui.theme.main.OrderDetailsFragment declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated$lambda$5' type=com.example.etiotest.ui.theme.main.OrderDetailsFragment origin=null
+    CALL 'public open fun setOnClickListener (p0: @[EnhancedNullability] android.view.View.OnClickListener?): kotlin.Unit [fake_override] declared in android.widget.ImageView' type=kotlin.Unit origin=null
+      $this: GET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:ivBack type:@[EnhancedNullability] android.widget.ImageView visibility:public [final] declared in com.example.etiotest.databinding.FragmentOrderDetailsBinding' type=@[EnhancedNullability] android.widget.ImageView superQualifierSymbol=com.example.etiotest.databinding.FragmentOrderDetailsBinding origin=null
+        receiver: CALL 'private final fun <get-binding> (): com.example.etiotest.databinding.FragmentOrderDetailsBinding declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment' type=com.example.etiotest.databinding.FragmentOrderDetailsBinding origin=GET_PROPERTY
+          $this: GET_VAR 'this$0: com.example.etiotest.ui.theme.main.OrderDetailsFragment declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated$lambda$5' type=com.example.etiotest.ui.theme.main.OrderDetailsFragment origin=null
+      p0: BLOCK type=android.view.View.OnClickListener origin=LAMBDA
+        COMPOSITE type=kotlin.Unit origin=null
+        CALL 'public final fun <jvm-indy> <T> (dynamicCall: T of kotlin.jvm.internal.<jvm-indy>, bootstrapMethodHandle: kotlin.Any, vararg bootstrapMethodArguments: kotlin.Any): T of kotlin.jvm.internal.<jvm-indy> declared in kotlin.jvm.internal' type=android.view.View.OnClickListener origin=null
+          <T>: android.view.View.OnClickListener
+          dynamicCall: CALL 'public final fun onClick (p0: com.example.etiotest.ui.theme.main.OrderDetailsFragment): android.view.View.OnClickListener declared in kotlin.jvm.internal.invokeDynamic' type=android.view.View.OnClickListener origin=null
+            p0: GET_VAR 'this$0: com.example.etiotest.ui.theme.main.OrderDetailsFragment declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated$lambda$5' type=com.example.etiotest.ui.theme.main.OrderDetailsFragment origin=null
+          bootstrapMethodHandle: CALL 'public final fun <jvm-method-handle> (tag: kotlin.Int, owner: kotlin.String, name: kotlin.String, descriptor: kotlin.String, isInterface: kotlin.Boolean): kotlin.Any declared in kotlin.jvm.internal' type=kotlin.Any origin=null
+            tag: CONST Int type=kotlin.Int value=6
+            owner: CONST String type=kotlin.String value="java/lang/invoke/LambdaMetafactory"
+            name: CONST String type=kotlin.String value="metafactory"
+            descriptor: CONST String type=kotlin.String value="(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;"
+            isInterface: CONST Boolean type=kotlin.Boolean value=false
+          bootstrapMethodArguments: VARARG type=kotlin.Array<kotlin.Any> varargElementType=kotlin.Any
+            CALL 'public final fun <jvm-original-method-type> (method: kotlin.Any): kotlin.Any declared in kotlin.jvm.internal' type=kotlin.Any origin=null
+              method: RAW_FUNCTION_REFERENCE 'public abstract fun onClick (p0: @[FlexibleNullability] android.view.View?): kotlin.Unit declared in android.view.View.OnClickListener' type=kotlin.Any
+            RAW_FUNCTION_REFERENCE 'private final fun onViewCreated$lambda$5$lambda$4 (this$0: com.example.etiotest.ui.theme.main.OrderDetailsFragment, it: @[FlexibleNullability] android.view.View?): kotlin.Unit declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment' type=kotlin.Any
+            CALL 'public final fun <jvm-original-method-type> (method: kotlin.Any): kotlin.Any declared in kotlin.jvm.internal' type=kotlin.Any origin=null
+              method: RAW_FUNCTION_REFERENCE 'public abstract fun onClick (p0: @[FlexibleNullability] android.view.View?): kotlin.Unit [fake_override] declared in kotlin.jvm.internal.invokeDynamic.<fake>' type=kotlin.Any
+
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:47)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrSourceCompilerForInline.generateLambdaBody(IrSourceCompilerForInline.kt:67)
+	at org.jetbrains.kotlin.codegen.inline.ExpressionLambda.generateLambdaBody(LambdaInfo.kt:72)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrInlineCodegen.genValueAndPut(IrInlineCodegen.kt:100)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall$handleParameter(ExpressionCodegen.kt:616)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall(ExpressionCodegen.kt:644)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrCall.accept(IrCall.kt:24)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitWhen(ExpressionCodegen.kt:1101)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitWhen(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrWhen.accept(IrWhen.kt:24)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitStatementContainer(ExpressionCodegen.kt:579)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitContainerExpression(ExpressionCodegen.kt:593)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitContainerExpression(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.visitors.IrElementVisitor$DefaultImpls.visitBlock(IrElementVisitor.kt:122)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlock(ExpressionCodegen.kt:413)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlock(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrBlock.accept(IrBlock.kt:18)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitStatementContainer(ExpressionCodegen.kt:579)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitContainerExpression(ExpressionCodegen.kt:593)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitContainerExpression(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.visitors.IrElementVisitor$DefaultImpls.visitComposite(IrElementVisitor.kt:125)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitComposite(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitComposite(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrComposite.accept(IrComposite.kt:18)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitStatementContainer(ExpressionCodegen.kt:579)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:584)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrBlockBody.accept(IrBlockBody.kt:20)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.generate(ExpressionCodegen.kt:240)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.doGenerate(FunctionCodegen.kt:123)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:44)
+	... 54 more
+Caused by: java.lang.RuntimeException: Exception while generating code for:
+FUN INLINE_LAMBDA name:onViewCreated$lambda$5$lambda$3 visibility:private modality:FINAL <> (this$0:com.example.etiotest.ui.theme.main.OrderDetailsFragment, test:com.example.etiotest.data.model.Test) returnType:kotlin.Unit
+  VALUE_PARAMETER BOUND_VALUE_PARAMETER name:this$0 index:0 type:com.example.etiotest.ui.theme.main.OrderDetailsFragment
+  VALUE_PARAMETER name:test index:1 type:com.example.etiotest.data.model.Test
+  BLOCK_BODY
+    VAR name:$i$a$-forEach-OrderDetailsFragment$onViewCreated$1$2 type:kotlin.Int [val]
+      CONST Int type=kotlin.Int value=0
+    VAR name:row type:@[FlexibleNullability] android.view.View? [val]
+      CALL 'public open fun inflate (p0: kotlin.Int, p1: @[EnhancedNullability] android.view.ViewGroup?): @[FlexibleNullability] android.view.View? declared in android.view.LayoutInflater' type=@[FlexibleNullability] android.view.View? origin=null
+        $this: CALL 'public open fun from (p0: @[FlexibleNullability] android.content.Context?): @[FlexibleNullability] android.view.LayoutInflater? declared in android.view.LayoutInflater' type=@[FlexibleNullability] android.view.LayoutInflater? origin=null
+          p0: CALL 'public final fun requireContext (): @[EnhancedNullability] android.content.Context [fake_override] declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment' type=@[EnhancedNullability] android.content.Context origin=null
+            $this: GET_VAR 'this$0: com.example.etiotest.ui.theme.main.OrderDetailsFragment declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated$lambda$5$lambda$3' type=com.example.etiotest.ui.theme.main.OrderDetailsFragment origin=null
+        p0: CONST Int type=kotlin.Int value=17367044
+        p1: CONST Null type=kotlin.Nothing? value=null
+    VAR name:tvTest type:android.widget.TextView [val]
+      CALL 'public final fun apply <T> (block: @[ExtensionFunctionType] kotlin.Function1<T of kotlin.StandardKt.apply, kotlin.Unit>): T of kotlin.StandardKt.apply [inline] declared in kotlin.StandardKt' type=android.widget.TextView origin=null
+        <T>: android.widget.TextView
+        $receiver: CONSTRUCTOR_CALL 'public constructor <init> (p0: @[FlexibleNullability] android.content.Context?) declared in android.widget.TextView' type=android.widget.TextView origin=null
+          p0: CALL 'public final fun requireContext (): @[EnhancedNullability] android.content.Context [fake_override] declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment' type=@[EnhancedNullability] android.content.Context origin=null
+            $this: GET_VAR 'this$0: com.example.etiotest.ui.theme.main.OrderDetailsFragment declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated$lambda$5$lambda$3' type=com.example.etiotest.ui.theme.main.OrderDetailsFragment origin=null
+        block: BLOCK type=@[ExtensionFunctionType] kotlin.Function1<android.widget.TextView, kotlin.Unit> origin=LAMBDA
+          COMPOSITE type=kotlin.Unit origin=null
+          FUNCTION_REFERENCE 'private final fun onViewCreated$lambda$5$lambda$3$lambda$2 ($test: com.example.etiotest.data.model.Test): kotlin.Unit declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment' type=@[ExtensionFunctionType] kotlin.Function1<android.widget.TextView, kotlin.Unit> origin=INLINE_LAMBDA reflectionTarget=null
+            $test: GET_VAR 'test: com.example.etiotest.data.model.Test declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated$lambda$5$lambda$3' type=com.example.etiotest.data.model.Test origin=null
+    CALL 'public open fun addView (p0: @[FlexibleNullability] android.view.View?): kotlin.Unit [fake_override] declared in android.widget.LinearLayout' type=kotlin.Unit origin=null
+      $this: GET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:llPriceBreakdownContainer type:@[EnhancedNullability] android.widget.LinearLayout visibility:public [final] declared in com.example.etiotest.databinding.FragmentOrderDetailsBinding' type=@[EnhancedNullability] android.widget.LinearLayout superQualifierSymbol=com.example.etiotest.databinding.FragmentOrderDetailsBinding origin=null
+        receiver: CALL 'private final fun <get-binding> (): com.example.etiotest.databinding.FragmentOrderDetailsBinding declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment' type=com.example.etiotest.databinding.FragmentOrderDetailsBinding origin=GET_PROPERTY
+          $this: GET_VAR 'this$0: com.example.etiotest.ui.theme.main.OrderDetailsFragment declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated$lambda$5$lambda$3' type=com.example.etiotest.ui.theme.main.OrderDetailsFragment origin=null
+      p0: GET_VAR 'val tvTest: android.widget.TextView [val] declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated$lambda$5$lambda$3' type=android.widget.TextView origin=null
+
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:47)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrSourceCompilerForInline.generateLambdaBody(IrSourceCompilerForInline.kt:67)
+	at org.jetbrains.kotlin.codegen.inline.ExpressionLambda.generateLambdaBody(LambdaInfo.kt:72)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrInlineCodegen.genValueAndPut(IrInlineCodegen.kt:100)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall$handleParameter(ExpressionCodegen.kt:616)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall(ExpressionCodegen.kt:644)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrCall.accept(IrCall.kt:24)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitStatementContainer(ExpressionCodegen.kt:579)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:584)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrBlockBody.accept(IrBlockBody.kt:20)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.generate(ExpressionCodegen.kt:240)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.doGenerate(FunctionCodegen.kt:123)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:44)
+	... 85 more
+Caused by: java.lang.RuntimeException: Exception while generating code for:
+FUN INLINE_LAMBDA name:onViewCreated$lambda$5$lambda$3$lambda$2 visibility:private modality:FINAL <> ($receiver:android.widget.TextView, $test:com.example.etiotest.data.model.Test) returnType:kotlin.Unit
+  $receiver: VALUE_PARAMETER name:$this$apply type:android.widget.TextView
+  VALUE_PARAMETER BOUND_VALUE_PARAMETER name:$test index:0 type:com.example.etiotest.data.model.Test
+  BLOCK_BODY
+    VAR name:$i$a$-apply-OrderDetailsFragment$onViewCreated$1$2$tvTest$1 type:kotlin.Int [val]
+      CONST Int type=kotlin.Int value=0
+    CALL 'public final fun setText (p0: @[FlexibleNullability] kotlin.CharSequence?): kotlin.Unit declared in android.widget.TextView' type=kotlin.Unit origin=EQ
+      $this: GET_VAR '$this$apply: android.widget.TextView declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated$lambda$5$lambda$3$lambda$2' type=android.widget.TextView origin=null
+      p0: STRING_CONCATENATION type=kotlin.String
+        CONST String type=kotlin.String value="• "
+        CALL 'public final fun <get-name> (): kotlin.String declared in com.example.etiotest.data.model.Test' type=kotlin.String origin=GET_PROPERTY
+          $this: GET_VAR '$test: com.example.etiotest.data.model.Test declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated$lambda$5$lambda$3$lambda$2' type=com.example.etiotest.data.model.Test origin=null
+        CONST String type=kotlin.String value=" \t\t Rs. "
+        CALL 'public final fun <get-price> (): kotlin.Int declared in com.example.etiotest.data.model.Test' type=kotlin.Int origin=GET_PROPERTY
+          $this: GET_VAR '$test: com.example.etiotest.data.model.Test declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated$lambda$5$lambda$3$lambda$2' type=com.example.etiotest.data.model.Test origin=null
+    SET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:textStyle type:kotlin.Int visibility:public [final,static] declared in android.R.attr' type=kotlin.Unit superQualifierSymbol=android.R.attr origin=EQ
+      value: CONST Int type=kotlin.Int value=1
+    CALL 'public open fun setPadding (p0: kotlin.Int, p1: kotlin.Int, p2: kotlin.Int, p3: kotlin.Int): kotlin.Unit declared in android.widget.TextView' type=kotlin.Unit origin=null
+      $this: GET_VAR '$this$apply: android.widget.TextView declared in com.example.etiotest.ui.theme.main.OrderDetailsFragment.onViewCreated$lambda$5$lambda$3$lambda$2' type=android.widget.TextView origin=null
+      p0: CONST Int type=kotlin.Int value=0
+      p1: CONST Int type=kotlin.Int value=8
+      p2: CONST Int type=kotlin.Int value=0
+      p3: CONST Int type=kotlin.Int value=8
+
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:47)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrSourceCompilerForInline.generateLambdaBody(IrSourceCompilerForInline.kt:67)
+	at org.jetbrains.kotlin.codegen.inline.ExpressionLambda.generateLambdaBody(LambdaInfo.kt:72)
+	at org.jetbrains.kotlin.backend.jvm.codegen.IrInlineCodegen.genValueAndPut(IrInlineCodegen.kt:100)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall$handleParameter(ExpressionCodegen.kt:616)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall(ExpressionCodegen.kt:644)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitCall(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrCall.accept(IrCall.kt:24)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitVariable(ExpressionCodegen.kt:790)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitVariable(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.declarations.IrVariable.accept(IrVariable.kt:36)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitStatementContainer(ExpressionCodegen.kt:579)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:584)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrBlockBody.accept(IrBlockBody.kt:20)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.generate(ExpressionCodegen.kt:240)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.doGenerate(FunctionCodegen.kt:123)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:44)
+	... 99 more
+Caused by: java.lang.AssertionError: access of const val: SET_FIELD 'FIELD IR_EXTERNAL_JAVA_DECLARATION_STUB name:textStyle type:kotlin.Int visibility:public [final,static] declared in android.R.attr' type=kotlin.Unit superQualifierSymbol=android.R.attr origin=EQ
+  value: CONST Int type=kotlin.Int value=1
+
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitFieldAccess(ExpressionCodegen.kt:861)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitFieldAccess(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.visitors.IrElementVisitor$DefaultImpls.visitSetField(IrElementVisitor.kt:206)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitSetField(ExpressionCodegen.kt:908)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitSetField(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrSetField.accept(IrSetField.kt:21)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitStatementContainer(ExpressionCodegen.kt:579)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:584)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.visitBlockBody(ExpressionCodegen.kt:138)
+	at org.jetbrains.kotlin.ir.expressions.IrBlockBody.accept(IrBlockBody.kt:20)
+	at org.jetbrains.kotlin.backend.jvm.codegen.ExpressionCodegen.generate(ExpressionCodegen.kt:240)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.doGenerate(FunctionCodegen.kt:123)
+	at org.jetbrains.kotlin.backend.jvm.codegen.FunctionCodegen.generate(FunctionCodegen.kt:44)
+	... 116 more
+
+

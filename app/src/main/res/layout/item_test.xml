@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@android:color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <!-- 1. The Gray Image Box (Left Side) -->
+        <!-- We use a CardView inside to get the rounded corners on the image itself -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardImageContainer"
+            android:layout_width="100dp"
+            android:layout_height="120dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="#D9D9D9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageView
+                android:id="@+id/imgTest"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@android:color/transparent"
+                tools:ignore="ContentDescription" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- 2. Title: "Complete Blood Count" -->
+        <TextView
+            android:id="@+id/tvTestName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Complete Blood Count"
+            android:textColor="#3D8FB8"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:ellipsize="end"
+            android:maxLines="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/cardImageContainer"
+            app:layout_constraintTop_toTopOf="@id/cardImageContainer" />
+
+        <!-- 3. Price Row: "Rs. 1400 Rs. 900" -->
+        <LinearLayout
+            android:id="@+id/layoutPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@id/tvTestName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTestName">
+
+            <!-- Original Price (Strikethrough handled in Code or via bg) -->
+            <TextView
+                android:id="@+id/tvOriginalPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rs. 1400"
+                android:textColor="#9E9E9E"
+                android:textSize="12sp"
+                tools:text="Rs. 1400" />
+
+            <!-- Discounted Price -->
+            <TextView
+                android:id="@+id/tvDiscountedPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Rs. 900"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- 4. Description Text -->
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="A routine blood test that helps monitor your overall health and detect potential issues early."
+            android:textColor="#757575"
+            android:textSize="11sp"
+            android:lineSpacingExtra="2dp"
+            android:maxLines="3"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tvTestName"
+            app:layout_constraintTop_toBottomOf="@id/layoutPrice" />
+
+        <!-- 5. "BOOK NOW" Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBookNow"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="12dp"
+            android:text="BOOK NOW"
+            android:textSize="11sp"
+            android:letterSpacing="0.05"
+            android:textStyle="bold"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            app:backgroundTint="#3D8FB8"
+            android:textColor="@color/white"
+            app:cornerRadius="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tvTestName"
+            app:layout_constraintTop_toBottomOf="@id/tvDescription"
+            app:layout_constraintVertical_bias="1.0"/>
+        <!-- Bias 1.0 ensures it sticks to bottom if text is short -->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
