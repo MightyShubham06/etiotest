@@ -98,7 +98,9 @@ class SignupFragment : Fragment() {
                         state.data.accessToken,
                         state.data.refreshToken,
                         state.data.user.id,
-                        state.data.user.name
+                        state.data.user.name,
+                        state.data.user.email,
+                        state.data.user.phone
                     )
 
                     // 2. Dismiss dialog and navigate

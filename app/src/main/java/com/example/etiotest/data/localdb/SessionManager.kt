@@ -37,6 +37,8 @@ class SessionManager(context: Context) {
         refreshToken: String,
         userId: String,
         name: String,
+        userEmail: String,
+        userPhone: String,
         keepMeLoggedIn: Boolean = true
     ) {
         prefs.edit().apply {
@@ -44,6 +46,8 @@ class SessionManager(context: Context) {
             putString(KEY_REFRESH_TOKEN, refreshToken)
             putString(KEY_USER_ID, userId)
             putString(KEY_USER_NAME, name)
+            putString("user_email", userEmail)
+            putString("user_phone", userPhone)
             putBoolean(KEY_IS_LOGGED_IN, true)
             putBoolean(KEY_KEEP_ME_LOGGED_IN, keepMeLoggedIn)
             apply()
@@ -55,6 +59,8 @@ class SessionManager(context: Context) {
     fun getRefreshToken(): String? = prefs.getString(KEY_REFRESH_TOKEN, null)
     fun getUserId(): String? = prefs.getString(KEY_USER_ID, null)
     fun getUserName(): String? = prefs.getString(KEY_USER_NAME, null)
+    fun getUserEmail(): String = prefs.getString("user_email", "") ?: ""
+    fun getUserPhone(): String = prefs.getString("user_phone", "") ?: ""
 
     /**
      * Logic for Splash Bypass:

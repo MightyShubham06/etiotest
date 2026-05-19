@@ -92,6 +92,14 @@
         <action
             android:id="@+id/action_bookingSlotFragment_to_savedAddressFragment"
             app:destination="@id/savedAddressFragment" />
+        <action
+            android:id="@+id/action_bookingSlotFragment_to_paymentDetailsFragment"
+            app:destination="@id/paymentDetailsFragment" />
+
+        <argument android:name="directTestId" app:argType="string" app:nullable="true" android:defaultValue="@null" />
+        <argument android:name="directTestName" app:argType="string" app:nullable="true" android:defaultValue="@null" />
+        <argument android:name="directTestPrice" app:argType="integer" android:defaultValue="0" />
+        <argument android:name="orderId" app:argType="string" app:nullable="true" android:defaultValue="@null" />
     </fragment>
 
     <fragment
@@ -171,5 +179,35 @@
         android:id="@+id/patientSelectionFragment"
         android:name="com.example.etiotest.ui.theme.main.PatientSelectionFragment"
         android:label="PatientSelectionFragment" />
+    <fragment
+        android:id="@+id/paymentDetailsFragment"
+        android:name="com.example.etiotest.ui.theme.main.PaymentDetailsFragment"
+        android:label="PaymentDetailsFragment">
+
+        <argument
+            android:name="addressId"
+            app:argType="string" />
+        <argument
+            android:name="patientId"
+            app:argType="string" />
+        <argument
+            android:name="patientName"
+            app:argType="string" />
+        <argument
+            android:name="bookingDate"
+            app:argType="string" />
+        <argument
+            android:name="timeSlot"
+            app:argType="string" />
+
+        <argument
+            android:name="orderId"
+            app:argType="string" />
+
+        <argument android:name="directTestId" app:argType="string" app:nullable="true" android:defaultValue="@null" />
+        <argument android:name="directTestName" app:argType="string" app:nullable="true" android:defaultValue="@null" />
+        <argument android:name="directTestPrice" app:argType="integer" android:defaultValue="0" />
+
+    </fragment>
 
 </navigation>

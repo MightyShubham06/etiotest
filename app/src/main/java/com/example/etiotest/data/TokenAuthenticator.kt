@@ -41,7 +41,9 @@ class TokenAuthenticator(
                     accessToken = newTokens.accessToken,
                     refreshToken = newTokens.refreshToken,
                     userId = sessionManager.getUserId() ?: "",
-                    name = sessionManager.getUserName() ?: ""
+                    name = sessionManager.getUserName() ?: "",
+                    userEmail = sessionManager.getUserEmail(),
+                    userPhone = sessionManager.getUserPhone()
                 )
 
                 // 5. Retry the original request with the NEW access token

@@ -101,6 +101,8 @@ class LoginFragment : Fragment() {
                         refreshToken = state.data.refreshToken,
                         userId = state.data.user.id,
                         name = state.data.user.name,
+                        state.data.user.email,
+                        state.data.user.phone,
                         keepMeLoggedIn = isKeepMeLoggedInChecked // Updated parameter
                     )
 

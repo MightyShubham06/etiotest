@@ -61,17 +61,6 @@
                         android:nestedScrollingEnabled="false"
                         tools:listitem="@layout/item_cart_test" />
 
-                    <!-- Patient Selection Button -->
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btnPatientSelection"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="12dp"
-                        android:background="@drawable/bg_btn_book"
-                        android:text="Patient Selection"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp"
-                        android:stateListAnimator="@null" />
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>

@@ -111,7 +111,13 @@ class TestDetailFragment : Fragment() {
         }
 
         binding.btnBookNow.setOnClickListener {
-            findNavController().navigate(R.id.action_detail_to_booking)
+            val test = args.selectedTest
+            val action = TestDetailFragmentDirections.actionDetailToBooking(
+                directTestId = test.id,
+                directTestName = test.name,
+                directTestPrice = test.displayPrice ?: test.price ?: 0
+            )
+            findNavController().navigate(action)
         }
     }
 

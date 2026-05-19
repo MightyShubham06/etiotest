@@ -63,27 +63,34 @@ class CartNewFragment : Fragment() {
             if (items.isNullOrEmpty()) {
                 binding.recyclerView.visibility = View.GONE
                 binding.emptyView.visibility = View.VISIBLE
+                binding.bottomCheckoutBar.visibility = View.GONE
             } else {
                 binding.recyclerView.visibility = View.VISIBLE
                 binding.emptyView.visibility = View.GONE
                 adapter.submitList(items)
+
+                val total = items.sumOf { it.price ?: 0 }
+                binding.tvTotalAmount.text = "Rs. $total"
+                binding.bottomCheckoutBar.visibility = View.VISIBLE
             }
         }
 
         cartViewModel.cartState.observe(viewLifecycleOwner) { state ->
             when (state) {
-                is CartState.Loading -> {
-
-                }
+                is CartState.Loading -> {}
                 is CartState.AddSuccess -> {
                     Toast.makeText(context, state.message, Toast.LENGTH_SHORT).show()
-                    cartViewModel.fetchCartItems() // Refresh list after success
+                    cartViewModel.fetchCartItems()
                 }
                 is CartState.Error -> {
                     Toast.makeText(context, state.message, Toast.LENGTH_SHORT).show()
                 }
                 else -> {}
             }
+        }
+
+        binding.btnCheckout.setOnClickListener {
+            findNavController().navigate(R.id.cartFragment)
         }
 
         cartViewModel.fetchCartItems()
