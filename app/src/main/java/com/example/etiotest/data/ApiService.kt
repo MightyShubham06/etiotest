@@ -13,12 +13,14 @@ import com.example.etiotest.data.model.MyOrdersResponse
 import com.example.etiotest.data.model.OrderDetailResponse
 import com.example.etiotest.data.model.OrderItem
 import com.example.etiotest.data.model.PatientItem
+import com.example.etiotest.data.model.PaymentResponse
 import com.example.etiotest.data.model.PlaceOrderResponse
 import com.example.etiotest.data.model.ProfileResponse
 import com.example.etiotest.data.model.SlotResponse
 import com.example.etiotest.data.model.UpdateProfileRequest
 import com.example.etiotest.data.model.UpdateProfileResponse
 import com.example.etiotest.data.model.UserProfileResponse
+import com.example.etiotest.data.request.InitiatePaymentRequest
 import com.example.etiotest.data.request.PlaceOrderRequest
 import com.example.etiotest.data.request.UserRequest
 import com.example.etiotest.data.request.UserResponse
@@ -112,6 +114,11 @@ interface ApiService {
 
     @POST("cart/remove")
     suspend fun removeFromCart(@Body req: Map<String, String>): Response<CommonResponse>
+
+    @POST("initiateJuspayPayment")
+    suspend fun initiatePayment(
+        @Body request: InitiatePaymentRequest
+    ): Response<PaymentResponse>
 }
 
 data class CartViewResponse(

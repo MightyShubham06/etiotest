@@ -19,6 +19,7 @@ import com.example.etiotest.data.model.PlaceOrderResponse
 import com.example.etiotest.data.model.ProfileResponse
 import com.example.etiotest.data.model.UpdateProfileRequest
 import com.example.etiotest.data.model.UserProfileResponse
+import com.example.etiotest.data.request.InitiatePaymentRequest
 import com.example.etiotest.data.request.PlaceOrderRequest
 import com.example.etiotest.data.request.UserRequest
 import com.example.etiotest.data.request.UserResponse
@@ -119,5 +120,8 @@ class AuthRepository(private val api: ApiService) {
         return api.removeFromCart(mapOf("testId" to testId))
     }
 
+    suspend fun initiatePayment(
+        request: InitiatePaymentRequest
+    ) = api.initiatePayment(request)
 }
 

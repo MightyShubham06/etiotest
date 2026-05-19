@@ -54,7 +54,6 @@ dependencies {
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("com.google.android.material:material:1.12.0")
-    implementation("com.google.android.material:material:1.11.0")
 
     // Room
     implementation("androidx.room:room-runtime:2.6.1")
@@ -79,6 +78,7 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.14")
 
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
+    implementation("in.juspay:hypersdk:2.1.8")
 
     testImplementation("junit:junit:4.13.2")
     testImplementation("androidx.test:core:1.6.1")

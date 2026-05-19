@@ -12,9 +12,11 @@ import com.example.etiotest.data.model.AddressRequest
 import com.example.etiotest.data.model.AddressResponse
 import com.example.etiotest.data.model.OrderItem
 import com.example.etiotest.data.model.PatientItem
+import com.example.etiotest.data.model.PaymentResponse
 import com.example.etiotest.data.model.PlaceOrderResponse
 import com.example.etiotest.data.model.UpdateProfileRequest
 import com.example.etiotest.data.model.UpdateProfileResponse
+import com.example.etiotest.data.request.InitiatePaymentRequest
 import com.example.etiotest.data.request.PlaceOrderRequest
 import com.example.etiotest.data.request.UserRequest
 import com.example.etiotest.data.request.UserResponse
@@ -211,6 +213,40 @@ private val _orderList = MutableLiveData<Resource<List<OrderItem>>>()
 
             } catch (e: Exception) {
                 _orderList.value = Resource.Error(e.message ?: "Something went wrong")
+            }
+        }
+    }
+
+    private val _paymentResponse = MutableLiveData<Resource<PaymentResponse>>()
+    val paymentResponse: LiveData<Resource<PaymentResponse>> = _paymentResponse
+    fun initiatePayment(request: InitiatePaymentRequest) {
+
+        viewModelScope.launch {
+
+            _paymentResponse.postValue(Resource.Loading())
+
+            try {
+
+                val response = repository.initiatePayment(request)
+
+                if (response.isSuccessful && response.body() != null) {
+
+                    _paymentResponse.postValue(
+                        Resource.Success(response.body()) as Resource<PaymentResponse>?
+                    )
+
+                } else {
+
+                    _paymentResponse.postValue(
+                        Resource.Error("Payment Failed")
+                    )
+                }
+
+            } catch (e: Exception) {
+
+                _paymentResponse.postValue(
+                    Resource.Error(e.message ?: "Unknown Error")
+                )
             }
         }
     }
