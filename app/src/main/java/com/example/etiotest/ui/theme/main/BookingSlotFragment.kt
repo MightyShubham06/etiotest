@@ -81,7 +81,14 @@ class BookingSlotFragment : Fragment(R.layout.fragment_booking_slot) {
             ?.savedStateHandle
             ?.getLiveData<PatientItem>("selected_patient")
             ?.observe(viewLifecycleOwner) { patient ->
+
                 selectedPatient = patient
+
+                binding.tvSelectedPatient.visibility = View.VISIBLE
+                binding.tvSelectedPatient.text =
+                    "Selected Patient : ${patient.name}"
+
+                binding.btnSelectPatient.text = "Change Patient"
             }
 
         binding.btnSelectPatient.setOnClickListener {

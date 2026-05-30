@@ -26,9 +26,10 @@ import com.example.etiotest.data.signup.SignupViewModel
 import com.example.etiotest.data.signup.VerifyOtpViewModel
 import com.example.etiotest.data.state.VerifyOtpState
 import com.example.etiotest.databinding.FragmentSignupBinding
+import com.example.etiotest.ui.theme.LoaderDialog
 
 class SignupFragment : Fragment() {
-
+    private lateinit var loader: LoaderDialog
     private var _binding: FragmentSignupBinding? = null
     private val binding get() = _binding!!
 
@@ -40,10 +41,13 @@ class SignupFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        loader = LoaderDialog(requireContext())
+
 
         // Use the context-based getter to avoid the "ApiService?" nullability mismatch
         val apiService = RetrofitClient.getApiService(requireContext())
         val repo = AuthRepository(apiService)
+
 
         viewModel = SignupViewModel(repo)
         verifyOtpViewModel = VerifyOtpViewModel(repo)
@@ -60,6 +64,7 @@ class SignupFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        loader = LoaderDialog(requireContext())
 
         binding.btnSignup.setOnClickListener { attemptSignup() }
 
@@ -71,14 +76,20 @@ class SignupFragment : Fragment() {
         viewModel.signupState.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is SignupState.Loading -> {
+                    loader.show("Creating account...")
+
                     binding.btnSignup.isEnabled = false
                 }
                 is SignupState.Success -> {
+                    loader.dismiss()
+
                     binding.btnSignup.isEnabled = true
                     showOtpDialog(state.data.jobId)
                     Toast.makeText(requireContext(), "OTP sent to ${state.data.email}", Toast.LENGTH_LONG).show()
                 }
                 is SignupState.Error -> {
+                    loader.dismiss()
+
                     binding.btnSignup.isEnabled = true
                     Toast.makeText(requireContext(), state.message, Toast.LENGTH_LONG).show()
                 }

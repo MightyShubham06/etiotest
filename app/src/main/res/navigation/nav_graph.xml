@@ -151,7 +151,7 @@
 
     <fragment
         android:id="@+id/patientListFragment"
-        android:name="com.example.etiotest.ui.patient.PatientListFragment"
+        android:name="com.example.etiotest.ui.theme.patient.PatientListFragment"
         android:label="Select Patient"
         tools:layout="@layout/fragment_patient_list" />
 

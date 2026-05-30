@@ -2,53 +2,77 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
-    android:layout_marginVertical="8dp"
-    app:cardBackgroundColor="#FFFFFF"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="0dp"
-    app:strokeColor="#EDF2F7"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="4dp"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="18dp"
+    app:cardElevation="2dp"
+    app:strokeColor="#E7EEF3"
     app:strokeWidth="1dp">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
         android:padding="16dp">
 
-        <!-- Custom Radio Button for Pulse Health Style -->
+        <!-- Radio Button -->
         <RadioButton
             android:id="@+id/radioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:buttonTint="#006481"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_centerVertical="true"
+            android:buttonTint="#007EA7"
             android:minWidth="0dp"
             android:minHeight="0dp" />
 
+        <!-- Content -->
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginStart="14dp"
+            android:layout_toEndOf="@id/radioButton"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvName"
-                android:layout_width="wrap_content"
+            <!-- Name + Badge -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/sf_bold"
-                android:textColor="#181C1E"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                tools:text="Priyanka Ambre" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/sf_bold"
+                    android:textColor="#111827"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    tools:text="Priyanka Ambre" />
+
+                <TextView
+                    android:id="@+id/tvTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_patient_tag"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:text="PRIMARY"
+                    android:textColor="#007EA7"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Details -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="8dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -57,35 +81,52 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/sf_medium"
-                    android:textColor="#3F484D"
+                    android:textColor="#5B6572"
                     android:textSize="14sp"
-                    tools:text="29, Female" />
+                    tools:text="29 Years • Female" />
 
                 <View
                     android:layout_width="4dp"
                     android:layout_height="4dp"
                     android:layout_marginHorizontal="8dp"
-                    android:background="@drawable/bg_circle_selected"
-                    android:backgroundTint="#BFC8CE" />
+                    android:background="@drawable/bg_circle_selected" />
 
                 <TextView
                     android:id="@+id/tvPhone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/sf_bold"
-                    android:textColor="#3F484D"
+                    android:fontFamily="@font/sf_medium"
+                    android:textColor="#5B6572"
                     android:textSize="14sp"
                     tools:text="+91 9876543210" />
             </LinearLayout>
 
+            <!-- Relation -->
+            <TextView
+                android:id="@+id/tvRelation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="#F3F7FA"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:text="Self"
+                android:textColor="#607080"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
         </LinearLayout>
 
-        <!-- Optional: Quick View Action -->
+        <!-- Arrow -->
         <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:id="@+id/imgArrow"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
             android:src="@drawable/ic_chevron_right"
-            app:tint="#BFC8CE" />
+            app:tint="#B7C0C8" />
 
-    </LinearLayout>
+    </RelativeLayout>
+
 </com.google.android.material.card.MaterialCardView>

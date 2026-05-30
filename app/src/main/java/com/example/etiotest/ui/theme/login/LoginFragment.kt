@@ -23,11 +23,13 @@ import com.example.etiotest.data.localdb.SessionManager
 import com.example.etiotest.data.signup.VerifyOtpViewModel
 import com.example.etiotest.data.state.VerifyOtpState
 import com.example.etiotest.databinding.FragmentLoginBinding
+import com.example.etiotest.ui.theme.LoaderDialog
 import com.example.etiotest.ui.theme.auth.LoginState
 import com.example.etiotest.ui.theme.auth.LoginViewModel
 import com.google.android.material.tabs.TabLayout
 
 class LoginFragment : Fragment() {
+    private lateinit var loader: LoaderDialog
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
@@ -61,6 +63,7 @@ class LoginFragment : Fragment() {
         verifyOtpViewModel = VerifyOtpViewModel(repo)
         loginViewModel = LoginViewModel(repo)
 
+        loader = LoaderDialog(requireActivity())
 
 
         // Set initial state for the "Personal" tab as shown in image (index 1)
@@ -75,10 +78,14 @@ class LoginFragment : Fragment() {
         loginViewModel.loginState.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is LoginState.Loading -> {
+                    loader.show( "loading...")
+
                     binding.btnLogin.isEnabled = false
                     // Show a ProgressBar if you have one
                 }
                 is LoginState.Success -> {
+                    loader.dismiss()
+
                     binding.btnLogin.isEnabled = true
                     // Pass the jobId to the next fragment using SafeArgs
                     showOtpDialog(state.response.jobId)
@@ -86,6 +93,8 @@ class LoginFragment : Fragment() {
 //                    findNavController().navigate(action)
                 }
                 is LoginState.Error -> {
+                    loader.dismiss()
+
                     binding.btnLogin.isEnabled = true
                     Toast.makeText(context, state.message, Toast.LENGTH_SHORT).show()
                 }
@@ -95,6 +104,8 @@ class LoginFragment : Fragment() {
         verifyOtpViewModel.verifyState.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is VerifyOtpState.Success -> {
+                    loader.dismiss()
+
                     // 3. Use the captured boolean in saveSession
                     sessionManager.saveSession(
                         accessToken = state.data.accessToken,
@@ -111,6 +122,8 @@ class LoginFragment : Fragment() {
                     findNavController().navigate(R.id.action_login_to_dashboard)
                 }
                 is VerifyOtpState.Error -> {
+                    loader.dismiss()
+
                     Toast.makeText(requireContext(), state.message, Toast.LENGTH_LONG).show()
                 }
                 else -> {}

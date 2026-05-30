@@ -1,4 +1,4 @@
-package com.example.etiotest.ui.patient
+package com.example.etiotest.ui.theme.patient
 
 import android.app.Dialog
 import android.os.Bundle
@@ -12,14 +12,14 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.etiotest.data.AuthRepository
 import com.example.etiotest.data.api.RetrofitClient
-import com.example.etiotest.data.factory.UserViewModelFactory
 import com.example.etiotest.databinding.FragmentPatientListBinding
 import com.example.etiotest.databinding.DialogAddUserBinding
-import com.example.etiotest.data.model.PatientItem
 import com.example.etiotest.data.viewmodel.UserViewModel
+import com.example.etiotest.ui.theme.LoaderDialog
 import com.example.etiotest.ui.theme.adapter.PatientAdapter
 
 class PatientListFragment : Fragment() {
+    private lateinit var loader: LoaderDialog
 
     private var _binding: FragmentPatientListBinding? = null
     private val binding get() = _binding!!
@@ -41,6 +41,7 @@ class PatientListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        loader = LoaderDialog(requireActivity())
 
         setupRecyclerView()
         setupListeners()
@@ -88,6 +89,9 @@ class PatientListFragment : Fragment() {
         userViewModel.patientList.observe(viewLifecycleOwner) { list ->
             patientAdapter.submitList(list)
 
+
+            loader.dismiss()
+
             binding.lytEmptyState.visibility =
                 if (list.isEmpty()) View.VISIBLE else View.GONE
 
@@ -102,7 +106,10 @@ class PatientListFragment : Fragment() {
 
         userViewModel.saveResult.observe(viewLifecycleOwner) { result ->
 
+            loader.show("Please Wait...")
             result.onSuccess { response ->
+                userViewModel.getPatients()
+                loader.dismiss()
                 Toast.makeText(
                     requireContext(),
                     "Patient Added: ${response._id}",
@@ -111,6 +118,7 @@ class PatientListFragment : Fragment() {
             }
 
             result.onFailure {
+                loader.dismiss()
                 Toast.makeText(
                     requireContext(),
                     "Error: ${it.message}",
@@ -127,14 +135,35 @@ class PatientListFragment : Fragment() {
         dialog.setContentView(dialogBinding.root)
 
         dialogBinding.btnSave.setOnClickListener {
-            val name = dialogBinding.etName.text.toString()
-            val phone = dialogBinding.etPhone.text.toString()
-            val age = dialogBinding.etAge.text.toString()
-            val gender = if (dialogBinding.rbMale.isChecked) "male" else "female"
 
-            userViewModel.saveUserDetails(name, phone, age, gender)
+            val name = dialogBinding.etName.text.toString().trim()
+            val phone = dialogBinding.etPhone.text.toString().trim()
+            val age = dialogBinding.etAge.text.toString().trim()
+
+            if (name.isEmpty() || phone.isEmpty() || age.isEmpty()) {
+                Toast.makeText(
+                    requireContext(),
+                    "Please fill all details",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+
+            val gender =
+                if (dialogBinding.rbMale.isChecked)
+                    "male"
+                else
+                    "female"
+
+            userViewModel.saveUserDetails(
+                name,
+                phone,
+                age,
+                gender
+            )
+
+            dialog.dismiss()
         }
-
         dialog.show()
     }
 
